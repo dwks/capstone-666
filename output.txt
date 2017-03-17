@@ -1,0 +1,24 @@
+66 83 c0 01             0x1000:  addw  $1, %ax
+    arg[0]: (imm 0x1) size 2
+    arg[1]: (reg ax) size 2
+83 c0 01                0x1004:  addl  $1, %eax
+    arg[0]: (imm 0x1) size 4
+    arg[1]: (reg eax) size 4
+48 83 c0 01             0x1007:  addq  $1, %rax
+    arg[0]: (imm 0x1) size 8
+    arg[1]: (reg rax) size 8
+04 01                   0x100b:  addb  $1, %al
+    arg[0]: (reg al) size 1
+    arg[1]: (imm 0x1) size 1
+    arg[2]: (reg al) size 1
+66 05 ef be             0x100d:  addw  $0xbeef, %ax
+    arg[0]: (reg ax) size 2
+    arg[1]: (imm 0xbeef) size 2
+    arg[2]: (reg ax) size 2
+48 05 ef be ad 1e       0x1011:  addq  $0x1eadbeef, %rax
+    arg[0]: (reg rax) size 8
+    arg[1]: (imm 0x1eadbeef) size 8
+    arg[2]: (reg rax) size 8
+66 83 04 42 01          0x1017:  addw  $1, (%rdx, %rax, 2)
+    arg[0]: (imm 0x1) size 2
+    arg[1]: (mem 0x0+rdx+rax*2) size 2
