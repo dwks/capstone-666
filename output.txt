@@ -1,24 +1,19 @@
-66 83 c0 01             0x1000:  addw  $1, %ax
-    arg[0]: (imm 0x1) size 2
-    arg[1]: (reg ax) size 2
-83 c0 01                0x1004:  addl  $1, %eax
-    arg[0]: (imm 0x1) size 4
-    arg[1]: (reg eax) size 4
-48 83 c0 01             0x1007:  addq  $1, %rax
-    arg[0]: (imm 0x1) size 8
-    arg[1]: (reg rax) size 8
-04 01                   0x100b:  addb  $1, %al
-    arg[0]: (reg al) size 1
-    arg[1]: (imm 0x1) size 1
-    arg[2]: (reg al) size 1
-66 05 ef be             0x100d:  addw  $0xbeef, %ax
-    arg[0]: (reg ax) size 2
-    arg[1]: (imm 0xbeef) size 2
-    arg[2]: (reg ax) size 2
-48 05 ef be ad 1e       0x1011:  addq  $0x1eadbeef, %rax
-    arg[0]: (reg rax) size 8
-    arg[1]: (imm 0x1eadbeef) size 8
-    arg[2]: (reg rax) size 8
-66 83 04 42 01          0x1017:  addw  $1, (%rdx, %rax, 2)
-    arg[0]: (imm 0x1) size 2
-    arg[1]: (mem 0x0+rdx+rax*2) size 2
+found 10 instructions
+66 48 e8 dc c8          0x1000:  callw 0xd8e1
+    arg[0]: (imm 0xd8e1) size 4
+f4                      0x1005:  hlt   
+f4                      0x1006:  hlt   
+90                      0x1007:  nop   
+0f 1f 44 00 00          0x1008:  nopl  (%rax, %rax)
+    arg[0]: (mem 0x0+rax+rax*1) size 4
+41 57                   0x100d:  pushq %r15
+    arg[0]: (reg r15) size 8
+41 56                   0x100f:  pushq %r14
+    arg[0]: (reg r14) size 8
+41 89 ff                0x1011:  movl  %edi, %r15d
+    arg[0]: (reg edi) size 4
+    arg[1]: (reg r15d) size 4
+41 55                   0x1014:  pushq %r13
+    arg[0]: (reg r13) size 8
+41 54                   0x1016:  pushq %r12
+    arg[0]: (reg r12) size 8

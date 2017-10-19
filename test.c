@@ -13,7 +13,8 @@ int main() {
 
     cs_insn *insn;
     size_t count = cs_disasm(handle, (void *)&code, &end - &code,
-        0x1000, 0, &insn);
+        0x1000, 10, &insn);
+    printf("found %zu instructions\n", count);
     for(size_t i = 0; i < count; i ++) {
         cs_insn *ins = &insn[i];
         int n = 0;
@@ -38,9 +39,9 @@ int main() {
                     cs_reg_name(handle, op->mem.base),
                     cs_reg_name(handle, op->mem.index), op->mem.scale);
                 break;
-            case X86_OP_FP:
+            /*case X86_OP_FP:
                 printf("(fp %f)", op->fp);
-                break;
+                break;*/
             }
             printf(" size %d\n", op->size);
         }

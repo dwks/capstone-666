@@ -1,13 +1,13 @@
-.section .text
 .global code
-.global end
 code:
-    add     $0x1,%ax
-    add     $0x1,%eax
-    add     $0x1,%rax
-    add     $0x1,%al
-    add     $0xbeef,%ax
-    addq    $0x1eadbeef,%rax
-    addw    $0x1,(%rdx,%rax,2)
-end:
-    nop
+#.byte 0x66
+.byte 0x66
+.byte 0x48
+.byte 0xe8
+.byte 0xdc
+.byte 0xc8
+.byte 0xf4
+.byte 0xf4
+nop
+.type code, @function
+.size code,.-code
